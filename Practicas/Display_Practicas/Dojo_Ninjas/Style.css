@@ -1,0 +1,29 @@
+#dojo { /*La forma más simple de agregar un elemento*/
+    width: 400px;
+    height: 200px;
+    background-color: grey;
+    display: flex;
+}
+
+img {
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+}
+
+#dojo {
+    width: 400px;
+    height: 200px;
+    background-color: grey;
+    display: flex;
+    align-items: center; /*Esto hace que se ponga en el centro a los ninjas*/
+}
+
+#dojo {
+    width: 400px;
+    height: 200px;
+    background-color: grey;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /*esto los reubica*/
+}
