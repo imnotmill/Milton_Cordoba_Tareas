@@ -1,0 +1,42 @@
+body {
+    width: 850px;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: crimson;
+    color: #fff;
+    display: flex;
+    align-items: center;   /* centra verticalmente */
+    padding-inline: 20px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.logo a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s ease; /*hace una transición de color cuando pasas el cursor*/
+    
+}
+
+.nav-links li a:hover {
+  text-decoration: underline; /*hace que aparezca una linea cuando pasas el cursor*/
+  color: black; /*Define el color a cambair en la transición de color*/
+}

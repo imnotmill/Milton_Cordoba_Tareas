@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+    <H1>¡Registrate y únete a la comunidad!</H1>
+        <div> 
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre"/>
+        </div>
+        <br>
+        <div>
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido"/>
+        </div>
+        <br>
+        <div>
+            <label for="Correo electrónico">Correo Electrónico:</label>
+            <input type="text" id="Correo electrónico" name="Correo electrónico"/> 
+        </div>
+        <br>
+        <div>
+            <label for="contraseña">Contraseña:</label>
+            <input type="password" id="contraseña" name="contraseña"/>
+        </div>
+        <br>
+        <div>
+            <label for="confirmar contraseña">Corfirmar Contraseña:</label>
+            <input type="password" id="confirmar contraseña" name="confirmar contraseña"/>
+        </div>
+        <br>
+        <div>
+            <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento"/>
+        </div>
+        <br>
+        <div>
+            <label>Género:</label>
+                <input type="radio" id="masculino" name="género"/>
+                <label for="masculino">Masculino</label>
+                <input type="radio" id="femenino" name="género"/>
+                <label for="normal">Femenido</label>
+                <input type="radio" id="prefiero no decir" name="género"/>
+                <label for="normal">Prefiero no decir</label>
+        </div>
+        <br>
+        <div>
+            <input type="checkbox" id="suscríbete" name="suscríbete"/>
+            <label for="suscríbete">Suscríbete a nuestro boletín de noticias</label>
+        </div>
+        <br>
+        <div>
+            <label for="descripción">Una descripción de mi mismo:</label><br><!--este br me ayuda a que el texto no se quede al costado sino arriba del textarea-->
+            <textarea id="descripción" name="descripción" rows="4" cols="30"></textarea>
+        </div>
+        <br>
+        <div>
+            <label for="intereses">Selecciona tus intereses:</label><br>
+                <select id="intereses" name="intereses" size="5">
+                    <option value="interes_1">Deportes</option>
+                    <option value="interes_2">Política</option>
+                    <option value="interes_3">Turismo</option>
+                    <option value="interes_4">Economía</option>              
+                    <option value="interes_5">Tecnología</option>
+                </select>
+        </div>
+        <br>
+        <div>
+            <input type="submit" value="¡Registrate!" />
+        </div>
+</body>
+</html>
