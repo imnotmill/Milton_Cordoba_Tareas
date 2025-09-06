@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Network</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Network</h1>
+        </div>
+    </header>
+    <main class="principal">
+        <div class="columnas">
+            <div id="main_i">
+                <div class="perfil">
+                    <img class="avatar" src="img/account-circle_119476.png" alt="Foto de perfil">
+                    <h3 class="perfil-nombre">Adrien Desplatz</h3>
+                </div>
+            </div>
+
+            <div id="main_d">
+                <h2 class="titulo">Your Feed</h2>
+
+                <div class="contenedores tarjeta">
+                    <div class="texto">
+                        <h4>Linn O.</h4>
+                        <p>Acabo de configurar este nuevo bot de Discord, cuéntenme que opinan ustedes.
+                            <a href="#">link</a>
+                        </p>
+                    </div>
+
+                    <div class="clicks">
+                        <p class="likeslinn">0 like(s)</p>
+                        <button class="boton like" onclick="contadorlinn(this)">Like</button>
+                    </div>
+                </div>
+
+                <div class="contenedores tarjeta">
+                    <div class="texto">
+                        <h4>Lina K.</h4>
+                        <p>Acabo de terminar este <a href="#">nuevo comic</a>, denle un vistazo.</p>
+                    </div>
+                    <div class="clicks">
+                        <p class="likeslina">0 like(s)</p>
+                        <button class="boton like" onclick="contadorlina(this)">Like</button>
+                    </div>
+                </div>
+
+                <div class="contenedores tarjeta">
+                    <div class="texto">
+                        <h4>Mateo H.</h4>
+                        <p>No puedo dejar de escuchar este <a href="#">album</a>. ¿A quién más le gusta?</p>
+                    </div>
+                    <div class="clicks">
+                        <p class="likesmateo">0 like(s)</p>
+                        <button class="boton like" onclick="contadormateo(this)">Like</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
