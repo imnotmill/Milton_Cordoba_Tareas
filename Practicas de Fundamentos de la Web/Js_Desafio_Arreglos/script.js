@@ -1,10 +1,10 @@
 function siempreAburrido(arreglo) {
     for (let i = 0; i < arreglo.length; i++) {
         if (arreglo[i] === "ver TV") {
-            console.log("¡Entretenido!");
+            console.log("¡Entretenido!"); // si el arreglo coincide con "ver Tv" lanzar un "entretenido"
         }    
         else {
-            console.log("¡Estoy Aburrido!");
+            console.log("¡Estoy Aburrido!"); // de lo contrario lanzar un "estoy aburrido"
         }
     }
 
@@ -14,9 +14,9 @@ siempreAburrido(["cantar", "correr", "salir", "ver TV"]);
 
 function numeroDeCorte(arreglo, valorCorte) {
     let resultado = [];
-    for (let i = 0; i < arreglo.length; i++) {
+    for (let i = 0; i < arreglo.length; i++) { // contar desde el 0 dentro de la lista
         if (arreglo[i] < valorCorte) {
-            resultado.push(arreglo[i]);
+            resultado.push(arreglo[i]); //si el número es menor a 4 lo saca de la lista
         }
     }
     return resultado;

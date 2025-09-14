@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página de Perfil</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div id="logo">
+            <h1>Flor<span>Manía</span></h1>
+        </div>
+        <nav id="navbar">
+            <ul>
+                <li><a id="raton" href="#">Envíar Flores</a></li>
+                <li><a href="#">Nosotros</a></li>
+            </ul>
+            <button class="boton" type="button" onclick="alerta(this)">Iniciar Sesion</button>
+        </nav>
+    </header>
+
+    <header>
+        <nav id="subnav">
+            <ul>
+                <li><a href="#">Girasoles</a></li>
+                <li><a href="#">Rosas</a></li>
+                <li><a href="#">Claveles</a></li>
+                <li><a href="#">Tulipanes</a></li>
+                <li><a href="#">Lirios</a></li>
+                <li><a href="#">Orquídeas</a></li>
+                <li><a href="#">Margaritas</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="flor_mes">
+            <h2>Flor del Mes</h2>
+            <img class="flor_img" src="img/flor-del-mes.jpg" alt="Foto Flor del Mes">
+        </div>
+
+       <div id="mas_resultado">
+  <p>Mostrando <strong>50</strong> resultados</p>
+  <a href="#" class="link-mas">Ver más Flores</a>
+</div>
+
+<div class="catalogo">
+  <div class="producto">
+    <img class="bloque" src="img/ramo-de-rosas.jpg" alt="Ramo de Rosas">
+    <div class="fila-info">
+      <em class="titulo">Ramo de Rosas</em>
+      <a href="#"  class="btn-comprar" onclick="Eliminar(this)">Comprar</a>
+    </div>
+    <p class="precio">$40.00</p>
+  </div>
+
+  <div class="producto">
+    <img class="bloque" src="img/arreglo-tulipanes.jpg" alt="Arreglo Tulipanes">
+    <div class="fila-info">
+      <em class="titulo">Arreglo Tulipanes</em>
+      <a href="#" class="btn-comprar" onclick="Eliminar(this)">Comprar</a>
+    </div>
+    <p class="precio">$50.00</p>
+  </div>
+
+  <div class="producto">
+    <img class="bloque" src="img/bouquet-lirios.jpg" alt="Bouquet Lirios">
+    <div class="fila-info">
+      <em class="titulo">Bouquet Lirios</em>
+      <a href="#" class="btn-comprar" onclick="Eliminar(this)">Comprar</a>
+    </div>
+    <p class="precio">$25.00</p>
+  </div>
+</div>
+<div class="barra_final"></div>
+    </main>
+</body>
+</html>

@@ -6,5 +6,5 @@ var userData = ["Lewis", "Hamilton", "l.hamilton@oficina.com", "piloto"];
 userData.pop(); // Pop sirve para eliminar información
 console.log(userData);
 
-userData[3] = "Fotógrafo";
+userData[3] = "Fotógrafo"; // así podemos agregar o modificar la lista, el 3 indica el espacio a cambiar 
 console.log(userData);  ["Lewis", "Hamilton", "l.hamilton@oficina.com"];

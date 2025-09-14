@@ -14,10 +14,12 @@ function contador2(input) {
     alert ("Golden Retriever was liked");
 }
 
-function SesionCerrada(input) {
-    input.innerText = "Cerrar Sesion";
-}
+const boton = document.getElementById('miBoton');
 
-function Eliminar(input) {
-    input.remove();
-}
+boton.addEventListener('mouseover', function() {
+  console.log('El ratón está sobre el botón');
+});
+
+boton.addEventListener('mouseout', function() {
+  console.log('El ratón ha salido del botón');
+});
