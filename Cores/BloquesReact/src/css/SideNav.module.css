@@ -1,0 +1,7 @@
+.sidenav {
+    height: 380px;
+    width: 225px;
+    background-color: #00cccc;
+    margin: 10px;
+    display: inline-block;
+}
