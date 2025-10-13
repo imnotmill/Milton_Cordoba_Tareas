@@ -1,6 +1,6 @@
 import './App.css'
 import TopNav from './component/TopNav.jsx'
-import Main from './component/main.jsx'
+import Main from './component/Main.jsx'
 import SideNav from './component/SideNav.jsx'
 
 function App() {

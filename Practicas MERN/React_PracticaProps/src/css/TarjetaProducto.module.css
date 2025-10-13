@@ -1,0 +1,18 @@
+.tarjetaProducto {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.enStock {
+  color: green;
+  font-weight: bold;
+}
+
+.agotado {
+  color: red;
+  font-weight: bold;
+}

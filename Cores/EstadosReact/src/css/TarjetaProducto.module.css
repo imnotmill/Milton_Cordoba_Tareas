@@ -1,0 +1,49 @@
+.tarjeta {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 18px;
+  width: 220px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.descripcion {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 10px 0;
+}
+
+.precio {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.enStock {
+  color: #0a8a3a; 
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.agotado {
+  color: #c0392b;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.botonComprar {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.botonComprar:disabled {
+  background-color: #cfcfcf;
+  cursor: not-allowed;
+  color: #7a7a7a;
+}
+
