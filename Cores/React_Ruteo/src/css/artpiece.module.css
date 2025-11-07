@@ -1,0 +1,11 @@
+.btns {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+img {
+    width: 30rem;
+    height: auto;
+    border-radius: 8px;
+}

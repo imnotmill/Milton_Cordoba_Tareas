@@ -1,0 +1,9 @@
+.list {
+    list-style: none;
+    padding: 15px;
+}
+.list a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: #75ba75;
+}
