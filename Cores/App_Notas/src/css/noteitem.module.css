@@ -1,0 +1,27 @@
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f3f3f3;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.text {
+  margin: 0;
+  font-size: 15px;
+}
+
+.button {
+  background: #ff3a3a;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.button:hover {
+  background: #d90404;
+}

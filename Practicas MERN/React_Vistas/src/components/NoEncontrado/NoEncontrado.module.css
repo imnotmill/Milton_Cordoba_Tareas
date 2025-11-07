@@ -1,0 +1,24 @@
+.noencontrado {
+  text-align: center;
+  margin-top: 50px;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+}
+
+.titulo {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #E74C3C;
+}
+
+.descripcion {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #666;
+}
