@@ -1,0 +1,26 @@
+.cartItem {
+  display: grid;
+  grid-template-columns: 1fr 80px 80px 50px;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.cartItem input {
+  padding: 5px;
+  width: 60px;
+}
+
+.cartItem button {
+  padding: 5px;
+  border: none;
+  background: red;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.cartItem button:hover {
+  background: darkred;
+}
