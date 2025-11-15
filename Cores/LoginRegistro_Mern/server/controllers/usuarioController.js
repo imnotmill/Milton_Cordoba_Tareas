@@ -9,8 +9,8 @@ const SECRET = process.env.SECRET;
 // Función auxiliar para generar token JWT
 const generarToken = (usuario) => {
   // Excluye la contraseña del objeto usuario
-  const { contraseña, ...usuarioSinContraseña } = usuario;
-  return jwt.sign(usuarioSinContraseña, SECRET, { expiresIn: '10m' });
+  const { contraseña, ...usuarioAll } = usuario;
+  return jwt.sign(usuarioAll, SECRET, { expiresIn: '10m' });
 };
 
 // Controlador de registro
@@ -77,7 +77,6 @@ const registrar = async (req, res) => {
       });
     }
 
-    // Error genérico
     res.status(500).json({ 
       mensaje: 'Error al registrar usuario',
       error: error.message 
@@ -125,7 +124,6 @@ const login = async (req, res) => {
       });
     }
 
-    // Generar token JWT con toda la info del usuario (sin contraseña)
     const usuarioObj = usuario.toObject();
     const token = generarToken(usuarioObj);
 
