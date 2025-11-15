@@ -7,8 +7,10 @@ dotenv.config();
 const SECRET = process.env.SECRET;
 
 // Función auxiliar para generar token JWT
-const generarToken = (correo, id) => {
-  return jwt.sign({ correo, id }, SECRET, { expiresIn: '10m' });
+const generarToken = (usuario) => {
+  // Excluye la contraseña del objeto usuario
+  const { contraseña, ...usuarioSinContraseña } = usuario;
+  return jwt.sign(usuarioSinContraseña, SECRET, { expiresIn: '10m' });
 };
 
 // Controlador de registro
@@ -42,19 +44,14 @@ const registrar = async (req, res) => {
     // Crear el usuario (el modelo se encarga de encriptar la contraseña)
     const nuevoUsuario = await Usuario.create({ nombre, apellido, correo, contraseña });
 
-    // Generar token JWT con correo e id
-    const token = generarToken(nuevoUsuario.correo, nuevoUsuario._id);
+    // Generar token JWT con toda la info del usuario (sin contraseña)
+    const usuarioObj = nuevoUsuario.toObject();
+    const token = generarToken(usuarioObj);
 
     // Devolver respuesta exitosa con token
     res.status(201).json({ 
       mensaje: 'Usuario registrado exitosamente',
-      token,
-      usuario: {
-        id: nuevoUsuario._id,
-        nombre: nuevoUsuario.nombre,
-        apellido: nuevoUsuario.apellido,
-        correo: nuevoUsuario.correo
-      }
+      token
     });
 
   } catch (error) {
@@ -128,19 +125,13 @@ const login = async (req, res) => {
       });
     }
 
-    // Generar token JWT con correo e id
-    const token = generarToken(usuario.correo, usuario._id);
+    // Generar token JWT con toda la info del usuario (sin contraseña)
+    const usuarioObj = usuario.toObject();
+    const token = generarToken(usuarioObj);
 
-    // Devolver respuesta exitosa con token
     res.status(200).json({ 
       mensaje: 'Login exitoso',
-      token,
-      usuario: {
-        id: usuario._id,
-        nombre: usuario.nombre,
-        apellido: usuario.apellido,
-        correo: usuario.correo
-      }
+      token
     });
 
   } catch (error) {
