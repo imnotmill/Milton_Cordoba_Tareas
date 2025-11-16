@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
-import pelStyles from '../css/PeliculaDetalle.module.css';
-import mainStyles from '../css/Peliculas.module.css';
+import pelStyles from '../css/DestinoDetalle.module.css';
+import mainStyles from '../css/Destinos.module.css';
 
 function decodeJwt(token) {
   try {
@@ -17,7 +17,7 @@ function decodeJwt(token) {
   }
 }
 
-const PeliculaDetalle = ({ setLogin }) => {
+const DestinoDetalle = ({ setLogin }) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [pelicula, setPelicula] = useState(null);
@@ -26,7 +26,7 @@ const PeliculaDetalle = ({ setLogin }) => {
   const fetchPelicula = async () => {
     const token = localStorage.getItem('token');
     try {
-      const res = await axios.get(`http://localhost:8000/api/peliculas/${id}`, { headers: { token_user: token } });
+      const res = await axios.get(`http://localhost:8000/api/destinos/${id}`, { headers: { token_user: token } });
       setPelicula(res.data);
       if (token) {
         setLogin(true);
@@ -38,16 +38,15 @@ const PeliculaDetalle = ({ setLogin }) => {
         navigate('/login');
         return;
       }
-      setError('No se pudo cargar la película');
+      setError('No se pudo cargar el destino');
     }
   };
 
   const handleEliminar = async () => {
-    if (!confirm('¿Estás seguro que deseas eliminar esta película?')) return;
     const token = localStorage.getItem('token');
     try {
-      await axios.delete(`http://localhost:8000/api/peliculas/${id}`, { headers: { token_user: token } });
-      navigate('/');
+      await axios.delete(`http://localhost:8000/api/destinos/${id}`, { headers: { token_user: token } });
+      navigate('/destinos');
     } catch (err) {
       if (err.response && (err.response.status === 401 || err.response.status === 403)) {
         localStorage.removeItem('token');
@@ -55,7 +54,7 @@ const PeliculaDetalle = ({ setLogin }) => {
         navigate('/login');
         return;
       }
-      setError('No se pudo eliminar la película');
+      setError('No se pudo eliminar el destino');
     }
   };
 
@@ -78,24 +77,37 @@ const PeliculaDetalle = ({ setLogin }) => {
   const user = localStorage.getItem('token') ? decodeJwt(localStorage.getItem('token')) : null;
 
   return (
-    <div className={mainStyles['peliculas-container']}>
+    <div className={`${mainStyles['peliculas-container']} ${pelStyles.outer}`}>
       <h1 className={pelStyles.title}>{pelicula.title}</h1>
       <div className={pelStyles['detalle-wrapper']}>
         <div className={pelStyles.card}>
           <div className={pelStyles['info-list']}>
-            <div className={pelStyles.label}>Director</div>
-            <div className={pelStyles.value}>{pelicula.director}</div>
-            <div className={pelStyles.label}>Año de lanzamiento</div>
-            <div className={pelStyles.value}>{pelicula.year}</div>
-            <div className={pelStyles.label}>Género</div>
-            <div className={pelStyles.value}>{pelicula.genre}</div>
+            <div>
+              <div className={pelStyles.label}>Descripción</div>
+              <div className={pelStyles.value}>{pelicula.description}</div>
+            </div>
+            <div>
+              <div className={pelStyles.label}>Tips viajeros</div>
+              <div className={pelStyles.value}>{pelicula.tips}</div>
+            </div>
+            <div>
+              <div className={pelStyles.label}>Mejor época para visitar</div>
+              <div className={pelStyles.value}>{pelicula.season}</div>
+            </div>
+            <div>
+              <div className={pelStyles.label}>Costo promedio</div>
+              <div className={pelStyles.value}>$ {pelicula.cost && pelicula.cost.toLocaleString()}</div>
+            </div>
           </div>
-          <img src={pelicula.img} alt={pelicula.title} className={pelStyles.img} onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/220x320?text=No+image'; }} />
-          <button className={pelStyles['edit-btn']} onClick={() => navigate(`/peliculas/${pelicula._id}/edit`)}>Editar</button>
+          {user && (
+            <div className={pelStyles['action-row']}>
+              <button className={pelStyles['delete-btn']} onClick={handleEliminar}>Eliminar</button>
+            </div>
+          )}
         </div>
       </div>
     </div>
   );
 };
 
-export default PeliculaDetalle;
+export default DestinoDetalle;

@@ -60,7 +60,7 @@ const ForosApi = ({ listaForos, setListaForos, setLogin, setMe }) => {
             <div className={styles["foro-grid"]} style={{ maxWidth: '900px', margin: '0 auto' }}>
                 {Array.isArray(listaForos) && listaForos.map((foro, index) => (
                     <div className={styles["foro-card"]} key={foro._id || index} style={{ width: '100%', maxWidth: '600px', minWidth: '400px', margin: '0 auto' }}>
-                        <img className={styles["foro-img"]} src={foro.img || "https://via.placeholder.com/120x170?text=Foro"} alt={foro.title} />
+                        <img className={styles["foro-img"]} src={foro.img || "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='170'><rect width='100%25' height='100%25' fill='%23ddd'/><text x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23666' font-size='14'>Foro</text></svg>"} alt={foro.title} />
                         <div className={styles["foro-title"]}>{foro.title}</div>
                         <div>{foro.description}</div>
                         <div className={styles["foro-btns"]}>

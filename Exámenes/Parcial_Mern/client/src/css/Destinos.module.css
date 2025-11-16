@@ -22,6 +22,71 @@
   justify-content: flex-start;
 }
 
+.list-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+
+.list-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.04);
+  width: 720px;
+  box-sizing: border-box;
+}
+
+.list-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.list-table thead th {
+  text-align: left;
+  padding: 12px 12px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.list-table tbody td {
+  padding: 12px 12px;
+  border-top: 1px solid #f1f1f1;
+  color: #374151;
+}
+.list-table thead th:nth-child(1), .list-table tbody td:nth-child(1) {
+  width: 33.3333%;
+  text-align: left;
+}
+.list-table thead th:nth-child(2), .list-table tbody td:nth-child(2) {
+  width: 33.3333%;
+  text-align: center;
+}
+.list-table thead th:nth-child(3), .list-table tbody td:nth-child(3) {
+  width: 33.3333%;
+  text-align: center;
+}
+
+.list-table th, .list-table td { box-sizing: border-box; vertical-align: middle; }
+
+.td-title {
+  font-weight: 600;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: #2563eb;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.link-btn:hover {
+  text-decoration: underline;
+}
+
 .pelicula-card {
   background: #f4f4f4;
   border-radius: 10px;

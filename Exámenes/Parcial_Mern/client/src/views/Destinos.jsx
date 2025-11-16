@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-import styles from '../css/Peliculas.module.css';
+import styles from '../css/Destinos.module.css';
 
 function decodeJwt(token) {
   try {
@@ -16,7 +16,7 @@ function decodeJwt(token) {
   }
 }
 
-const Peliculas = ({ listaPeliculas, setListaPeliculas, setLogin, setMe }) => {
+const Destinos = ({ listaPeliculas, setListaPeliculas, setLogin, setMe }) => {
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
   const user = token ? decodeJwt(token) : null;
@@ -27,7 +27,7 @@ const Peliculas = ({ listaPeliculas, setListaPeliculas, setLogin, setMe }) => {
       navigate('/login');
       return;
     }
-    axios.get('http://localhost:8000/api/peliculas', { headers: { token_user: token } })
+    axios.get('http://localhost:8000/api/destinos', { headers: { token_user: token } })
       .then(res => {
         setListaPeliculas(res.data);
         setLogin(true);
@@ -43,12 +43,11 @@ const Peliculas = ({ listaPeliculas, setListaPeliculas, setLogin, setMe }) => {
   };
 
   const handleEliminar = (id) => {
-    if (!confirm('¿Estás seguro que deseas eliminar esta película?')) return;
     const tokenLocal = localStorage.getItem('token');
-    axios.delete(`http://localhost:8000/api/peliculas/${id}`, { headers: { token_user: tokenLocal } })
+    axios.delete(`http://localhost:8000/api/destinos/${id}`, { headers: { token_user: tokenLocal } })
       .then(() => {
         setListaPeliculas(listaPeliculas.filter(p => p._id !== id));
-        navigate('/');
+        navigate('/destinos');
       })
       .catch(err => {
         if (err.response && (err.response.status === 401 || err.response.status === 403)) {
@@ -60,28 +59,36 @@ const Peliculas = ({ listaPeliculas, setListaPeliculas, setLogin, setMe }) => {
   };
 
   useEffect(() => { fetchPeliculas(); }, []);
-
   return (
     <div className={styles['peliculas-container']}>
       <div className={styles['peliculas-header']}>
         <div className={styles['peliculas-bienvenida']}>{user && `Bienvenido de vuelta ${user.firstname || user.name || ''} ${user.lastname || ''}`}</div>
       </div>
 
-      <div className={styles['peliculas-grid']}>
-        {Array.isArray(listaPeliculas) && listaPeliculas.map((p) => (
-          <div key={p._id} className={styles['pelicula-card']}>
-            <img className={styles['pelicula-img']} src={p.img} alt={p.title} onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/220x320?text=No+image'; }} />
-            <div className={styles['pelicula-title']}>{p.title}</div>
-            <div style={{ marginBottom: 8 }}>{p.year} • {p.director}</div>
-            <div className={styles['pelicula-btns']}>
-              <button onClick={() => navigate(`/peliculas/${p._id}`)} className={styles['pelicula-btn-detalle']}>Detalle</button>
-              <button onClick={() => handleEliminar(p._id)} className={styles['pelicula-btn-eliminar']}>Eliminar</button>
-            </div>
-          </div>
-        ))}
+      <div className={styles['list-wrapper']}>
+        <div className={styles['list-card']}>
+          <table className={styles['list-table']}>
+            <thead>
+              <tr>
+                <th>Título</th>
+                <th>Detalle</th>
+                <th>Modificar</th>
+              </tr>
+            </thead>
+            <tbody>
+              {Array.isArray(listaPeliculas) && listaPeliculas.map((p) => (
+                <tr key={p._id}>
+                  <td className={styles['td-title']}>{p.title}</td>
+                  <td><button className={styles['link-btn']} onClick={() => navigate(`/destinos/${p._id}`)}>Ver</button></td>
+                  <td><button className={styles['link-btn']} onClick={() => navigate(`/destinos/${p._id}/edit`)}>Editar</button></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
 };
 
-export default Peliculas;
+export default Destinos;

@@ -62,7 +62,7 @@ const Registro = ({ setLogin }) => {
                 }
                 setErrors({});
                 if (setLogin) setLogin(true);
-                navigate('/peliculas');
+                navigate('/destinos');
             })
             .catch(e => setErrors(e?.response?.data?.errors || { general: 'Error de conexión' }));
     };
@@ -70,7 +70,7 @@ const Registro = ({ setLogin }) => {
         return (
             <div className={styles['registro-full']}>
                 
-                <form onSubmit={registerProcess} className={styles['registro-form-full']} style={{ background: '#fff', borderRadius: '16px', boxShadow: '0 4px 32px #0002', padding: '3.5rem 3.2rem', minWidth: 440, maxWidth: 600, width: '100%' }}>
+                <form onSubmit={registerProcess} className={styles['registro-form-full']} style={{ background: '#fff', borderRadius: '16px', boxShadow: '0 4px 32px #0002', padding: '1.2rem', width: '100%' }}>
                     <h2 style={{ fontWeight: 600, fontSize: '2.7rem', marginBottom: '1.7rem', textAlign: 'center' }}>Registro</h2>
                     <div>
                         <input type="text" name="nombre" placeholder="Nombre" value={state.nombre} onChange={updateState} style={{ width: '100%' }} />

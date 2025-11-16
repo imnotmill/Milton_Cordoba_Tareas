@@ -16,17 +16,35 @@ const Login = ({setLogin}) =>{
         setState({...state, [e.target.name] : e.target.value})
     }
 
+    const validate = () => {
+        const newErrors = {};
+        if (!state.email) newErrors.email = 'Por favor ingresa un correo';
+        else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(state.email)) newErrors.email = 'Correo inválido';
+
+        if (!state.password) newErrors.password = 'Por favor ingresa tu contraseña';
+        else if (state.password.length < 8) newErrors.password = 'La contraseña debe tener al menos 8 caracteres';
+
+        return newErrors;
+    }
+
 
     const loginProcess = (e)=>{
         e.preventDefault();
+        const newErrors = validate();
+        if(Object.keys(newErrors).length > 0){
+            setErrors(newErrors);
+            return;
+        }
         const API = import.meta.env.VITE_API_URL || 'http://localhost:8000';
         const URL= `${API}/api/users/login`;
         axios.post(URL,state).then(
             response => {
-                localStorage.setItem("token", response.data.token)
+                const token = response.data.token;
+                localStorage.setItem("token", token)
+                axios.defaults.headers.common['token_user'] = token;
                 setLogin(true)
                 setErrors({})
-                navigate('/peliculas')
+                navigate('/destinos')
             }
         ).catch(e=> setErrors(e?.response?.data?.errors || {general: 'Error de conexión'}))
     }
@@ -34,7 +52,7 @@ const Login = ({setLogin}) =>{
     return (
         <div className={styles['registro-full']}>
             
-            <form onSubmit={loginProcess} className={styles['registro-form-full']} style={{ background: '#fff', borderRadius: '16px', boxShadow: '0 4px 32px #0002', padding: '3.5rem 3.2rem', minWidth: 440, maxWidth: 600, width: '100%' }}>
+            <form onSubmit={loginProcess} className={styles['registro-form-full']} style={{ background: '#fff', borderRadius: '16px', boxShadow: '0 4px 32px #0002', padding: '1.2rem', width: '100%' }}>
                 <h2 style={{ fontWeight: 600, fontSize: '2.7rem', marginBottom: '1.7rem', textAlign: 'center' }}>Login</h2>
                 <div>
                     <input type="email" name="email" placeholder="Correo" value={state.email} onChange={updateState} style={{ width: '100%' }} />
